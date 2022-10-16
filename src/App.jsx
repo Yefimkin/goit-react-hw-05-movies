@@ -1,16 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
+import { lazy, Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
+import Layout from 'components/Layout/Layout';
 
-function App() {
+const App = () => {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Layout />}>
+          {/* <Route path="/" element={<Home />} />
+          <Route path="movies" element={<MovieSearch />} />
+          <Route path="movies/:itemId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route> */}
+        </Route>
       </Routes>
-    </>
+    </Suspense>
   );
-}
+};
 
 export default App;
