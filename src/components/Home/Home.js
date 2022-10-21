@@ -8,7 +8,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const searchMovies = async () => {
+    const fetchTrendingMovies = async () => {
       setLoading(true);
       try {
         const itemsData = await getTrendingMovies();
@@ -19,7 +19,7 @@ const Home = () => {
         setLoading(false);
       }
     };
-    searchMovies();
+    fetchTrendingMovies();
   }, []);
   return (
     <main>

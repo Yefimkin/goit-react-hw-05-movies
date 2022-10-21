@@ -22,7 +22,7 @@ const MovieDetails = () => {
         <>
           <Link to={goBackURL}>Go back</Link>
           <hr />
-          <img src={poster} alt={title} />
+          <img src={poster} alt={title} height={489} width={320} />
 
           <h1>
             {title} {release}
