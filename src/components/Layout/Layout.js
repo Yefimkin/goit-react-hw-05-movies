@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -19,14 +20,16 @@ const Wrapper = styled.div`
 
 const Layout = () => {
   return (
-    <Wrapper>
-      <Nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-      </Nav>
+    <Suspense>
+      <Wrapper>
+        <Nav>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
+        </Nav>
       <hr />
-      <Outlet />
-    </Wrapper>
+        <Outlet />
+      </Wrapper>
+    </Suspense>
   );
 };
 

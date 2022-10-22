@@ -1,8 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-// import Layout from './Layout/Layout';
-// import Home from './Home/Home';
-// import MovieDetails from './MovieDetails/MovieDetails';
 import Loader from './components/Loader/Loader';
 
 const Home = lazy(() => import('./components/Home/Home'));
@@ -25,6 +22,7 @@ const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </Suspense>

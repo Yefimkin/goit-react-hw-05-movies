@@ -2,20 +2,36 @@ import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 
 const SearchForm = ({ onSubmit }) => {
-  const [movieName, setMovieName] = useState('');
+  // const [movieName, setMovieName] = useState('');
 
-  const handleChange = event => {
-    setMovieName(event.currentTarget.value.toLowerCase());
+  // const handleChange = event => {
+  //   setMovieName(event.currentTarget.value.toLowerCase());
+  // };
+
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   if (movieName.trim() === '') {
+  //     alert('Your search is empty');
+  //   }
+  //   onSubmit(movieName);
+  //   setMovieName('');
+  // };
+
+  const [movieName, setQuery] = useState('');
+
+  const handleChange = e => {
+    e.preventDefault();
+    const { value } = e.currentTarget;
+    setQuery(value);
   };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    if (movieName.trim() === '') {
-      alert('Your search is empty');
-    }
+  const handleSubmit = e => {
+    e.preventDefault();
     onSubmit(movieName);
-    setMovieName('');
+    // reset();
   };
+
+  // const reset = () => setQuery('');
+  
 
   return (
     <div>
