@@ -1,23 +1,9 @@
 import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 
+
 const SearchForm = ({ onSubmit }) => {
-  // const [movieName, setMovieName] = useState('');
-
-  // const handleChange = event => {
-  //   setMovieName(event.currentTarget.value.toLowerCase());
-  // };
-
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   if (movieName.trim() === '') {
-  //     alert('Your search is empty');
-  //   }
-  //   onSubmit(movieName);
-  //   setMovieName('');
-  // };
-
-  const [movieName, setQuery] = useState('');
+  const [movieName, setQuery] = useState('query' ?? '');
 
   const handleChange = e => {
     e.preventDefault();
@@ -26,13 +12,8 @@ const SearchForm = ({ onSubmit }) => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(movieName);
-    // reset();
+    onSubmit(movieName); 
   };
-
-  // const reset = () => setQuery('');
-  
-
   return (
     <div>
       <form onSubmit={handleSubmit}>

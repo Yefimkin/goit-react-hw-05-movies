@@ -1,4 +1,5 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Suspense } from 'react';
 import styled from 'styled-components';
 import Loader from 'components/Loader/Loader';
 import { useFetchItem } from 'useFetchItem/useFetchItem';
@@ -41,7 +42,9 @@ const MovieDetails = () => {
             Reviews
           </Link>
           <hr />
-          <Outlet />
+          <Suspense>
+            <Outlet />
+          </Suspense>
         </>
       )}
     </>

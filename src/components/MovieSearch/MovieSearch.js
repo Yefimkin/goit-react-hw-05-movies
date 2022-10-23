@@ -43,7 +43,7 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <SearchForm onSubmit={formSearchSubmit} />
+      <SearchForm onSubmit={formSearchSubmit.props.currentItem} />
       {loading && <Loader />}
       {movies && (
         <ul>
